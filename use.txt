@@ -1,5 +1,5 @@
 -- Client-side
-exports['kp-notify']:ShowNotification({
+exports['Fast-Notify']:ShowNotification({
     type = 'success',
     title = 'Succes!',
     message = 'Je actie is succesvol uitgevoerd.',
@@ -8,7 +8,7 @@ exports['kp-notify']:ShowNotification({
 })
 
 -- Server-side
-exports['kp-notify']:ShowNotification(source, {
+exports['Fast-Notify']:ShowNotification(source, {
     type = 'error',
     message = 'Er is een fout opgetreden.',
     position = 'center'
