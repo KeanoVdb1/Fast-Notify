@@ -1,0 +1,15 @@
+-- Client-side
+exports['kp-notify']:ShowNotification({
+    type = 'success',
+    title = 'Succes!',
+    message = 'Je actie is succesvol uitgevoerd.',
+    duration = 5000,
+    position = 'top-right'
+})
+
+-- Server-side
+exports['kp-notify']:ShowNotification(source, {
+    type = 'error',
+    message = 'Er is een fout opgetreden.',
+    position = 'center'
+})

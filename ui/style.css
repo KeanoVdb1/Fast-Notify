@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.notification-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: hidden;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.notification {
+    padding: 10px 10px 10px 50px; /* Extra padding links voor het icoon */
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, max-height 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: auto;
+    max-height: 200px;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--background-color);
+    border-left: 4px solid var(--border-color); /* Nieuwe regel voor de linkerborder */
+}
+
+
+.notification-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.notification-icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.notification::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px; /* Breedte van de linkerborder */
+    background: var(--border-color);
+    transition: transform var(--duration) linear;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.notification.removing::before {
+    transform: scaleY(0);
+}
+
+
+
+.notification::after {
+    content: none;
+}
+
+
+.notification.removing::after {
+    background-position: 0 0;
+}
+
+.notification.removing {
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.notification-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.notification-message {
+    font-size: 14px;
+}
+
+.top { top: 0; left: 50%; transform: translateX(-50%); }
+.top-right { top: 0; right: 0; }
+.top-left { top: 0; left: 0; }
+.bottom { bottom: 0; left: 50%; transform: translateX(-50%); flex-direction: column-reverse; }
+.bottom-right { bottom: 0; right: 0; flex-direction: column-reverse; }
+.bottom-left { bottom: 0; left: 0; flex-direction: column-reverse; }
+.center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
